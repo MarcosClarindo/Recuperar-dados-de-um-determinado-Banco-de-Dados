@@ -18,14 +18,11 @@ public class Program {
 			conn = DB.getConnection();
 			
 			st = conn.prepareStatement(
-					"UPDATE seller "
-					+ "SET BaseSalary = BaseSalary + ? "
+				// Deletando dados no banco de dados
+					"DELETE FROM department "
 					+ "WHERE "
-					+"(DepartmentId = ?)");
-				//atribuindo valores ao simbolo de interrogação
-				st.setDouble(1, 200.0);
-				st.setInt(2, 2);
-				
+					+ "Id = ?");
+				st.setInt(1, 5);
 				// para executar o código e mostrar a quantidade de linhas afetadas
 				int rowsAffected = st.executeUpdate();
 				
